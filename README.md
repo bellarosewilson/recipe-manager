@@ -65,7 +65,7 @@ Follow these steps so a new developer can run the project locally without extern
 
 ### Rails credentials
 
-Sensitive keys are stored via Rails credentials. You will need your own AWS S3 Credentials and OpenAI API Key. Ensure correct bucket is being utilized.  Edit with:
+Sensitive keys are stored via Rails credentials. You will need your own AWS S3 Credentials and OpenAI API Key. Ensure correct bucket is being utilized. Checkout [FAQ for Guides to Setup Keys as New User](#how-do-i-get-my-own-aws-s3-and-openai-keys). Edit with:
 
 ```bash
 EDITOR="code --wait" bin/rails credentials:edit
@@ -195,16 +195,23 @@ The app exposes a JSON API for updating recipes. All API requests require an aut
 
 ## Troubleshooting & FAQ
 
-### "Parse Failing on Deployment" (e.g. No Chat GPT 4o Model / out of memory)
+### How Do I Get My Own AWS S3 and OpenAI Keys?
 
-- **Free tier (512MB):** The app defaults to **gpt-4o-mini** for the recipe parser so it fits in Render's free tier. Parsing should work without changes.
-- **Optional:** Set env `OPENAI_PARSER_MODEL=gpt-4o-mini` on Render to make this explicit.
-- **If you still hit memory limits:** Reduce upload size (images over 2MB are auto-resized before sending to OpenAI). Or move to a **paid Render plan** (e.g. Starter with more RAM) and then you can set `OPENAI_PARSER_MODEL=gpt-4o` for the full vision model. Local development is not limited by 512MB.
+Click here for helpful new user guides on getting these keys set up:
+
+- **Amazon AWS** – [Getting Started with S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html)
+- **OpenAI API** – [Quickstart Guide](https://developers.openai.com/api/docs/quickstart/)
 
 ### "OpenAI API key not set"
 
 - Run `bin/rails credentials:edit` and add `openai_api_key: sk-your-key`.
 - Or set the key in `.env` if your setup reads it; ensure `dotenv-rails` loads `.env` in development.
+
+### "Parse Failing on Deployment" (e.g. No Chat GPT 4o Model / out of memory)
+
+- **Free tier (512MB):** The app defaults to **gpt-4o-mini** for the recipe parser so it fits in Render's free tier. Parsing should work without changes.
+- **Optional:** Set env `OPENAI_PARSER_MODEL=gpt-4o-mini` on Render to make this explicit.
+- **If you still hit memory limits:** Reduce upload size (images over 2MB are auto-resized before sending to OpenAI). Or move to a **paid Render plan** (e.g. Starter with more RAM) and then you can set `OPENAI_PARSER_MODEL=gpt-4o` for the full vision model. Local development is not limited by 512MB.
 
 ### "No user in the database. Run: rails db:seed"
 
