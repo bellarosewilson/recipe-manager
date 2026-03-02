@@ -6,12 +6,14 @@
 
 ## Table of contents
 
-- [Setup & installation](#setup--installation)
+- [Setup & Installation](#setup--installation)
 - [Configuration](#configuration)
-- [Entity relationship diagram](#entity-relationship-diagram)
 - [Contributing](#contributing)
 - [Troubleshooting & FAQ](#troubleshooting--faq)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Project Board](#project-board)
 - [License](#license)
+
 
 ---
 
@@ -141,11 +143,6 @@ Parse confirmation emails are sent after a recipe is created or re-parsed. In de
 
 ---
 
-## Entity Relationship Diagram
-![alt text](image.png)
-
----
-
 ## Troubleshooting & FAQ
 
 ### "Parse Failing on Deployment" (e.g. No Chat GPT 4o Model / out of memory)
@@ -181,7 +178,14 @@ Parse confirmation emails are sent after a recipe is created or re-parsed. In de
 - Run locally: `bundle exec rubocop` and `bundle exec rspec`. Fix any new offenses or failing specs before pushing.
 
 ---
+## Entity Relationship Diagram
+![alt text](image.png)
 
+---
+## Project Board
+[View Project Board on GitHub](https://github.com/users/bellarosewilson/projects/1/views/1)
+
+---
 ## License
 
 All files are covered by the MIT license. See [LICENSE.txt](LICENSE.txt).
