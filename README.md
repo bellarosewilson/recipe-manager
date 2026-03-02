@@ -62,7 +62,7 @@ Follow these steps so a new developer can run the project locally without extern
 
 ### Rails credentials
 
-Sensitive keys are stored via Rails credentials. Edit with:
+Sensitive keys are stored via Rails credentials. You will need your own AWS S3 Credentials and OpenAI API Key. Ensure correct bucket is being utilized.  Edit with:
 
 ```bash
 EDITOR="code --wait" bin/rails credentials:edit
