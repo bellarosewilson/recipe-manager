@@ -11,7 +11,7 @@
 #
 class Step < ApplicationRecord
   include Commentable
-  
+
   belongs_to :recipe, required: true, class_name: "Recipe", foreign_key: "recipe_id"
 
   validates :position, presence: true
