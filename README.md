@@ -77,7 +77,7 @@ EDITOR="code --wait" bin/rails credentials:edit
 ```
 
 2. Add Keys
-(If needed select development, otherwise defaults to production) 2. Add Keys
+(If needed select development, otherwise defaults to production)
 
 - **OpenAI** (required for recipe parsing):  
   `openai_api_key: sk-your-key`
