@@ -15,7 +15,6 @@
 - [Project Board](#project-board)
 - [License](#license)
 
-
 ---
 
 ## Setup & installation
@@ -23,7 +22,8 @@
 Follow these steps so a new developer can run the project locally without external help.
 
 ### Accepted Image Types
-- (jpg,png,heic,heif) 
+
+- (jpg,png,heic,heif)
 
 ### Prerequisites
 
@@ -34,17 +34,20 @@ Follow these steps so a new developer can run the project locally without extern
 ### Steps
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd recipe-parser
    ```
 
 2. **Install dependencies**
+
    ```bash
    bundle install
    ```
 
 3. **Create and load the database**
+
    ```bash
    bin/rails db:create
    bin/rails db:migrate
@@ -67,12 +70,14 @@ Follow these steps so a new developer can run the project locally without extern
 
 Sensitive keys are stored via Rails credentials. You will need your own AWS S3 Credentials and OpenAI API Key. Checkout these guides if needed, [FAQ for Guides to Setup Keys as New User](#how-do-i-get-my-own-aws-s3-and-openai-keys).
 
-Edit with:
+1. Edit with:
+
 ```bash
 EDITOR="code --wait" bin/rails credentials:edit
 ```
 
-Add (development/test can use separate credentials if needed):
+2. Add Keys
+(If needed select development, otherwise defaults to production) 2. Add Keys
 
 - **OpenAI** (required for recipe parsing):  
   `openai_api_key: sk-your-key`
@@ -84,20 +89,21 @@ Add (development/test can use separate credentials if needed):
 - Use a **.env** file (loaded by `dotenv-rails`) for local overrides. Do not commit `.env`; add it to `.gitignore`.
 - Optional: `OPENAI_API_KEY` if you prefer env over credentials for the key.
 
-
 ### Verifying OpenAI
 
-Use the log tester script to confirm your API key and parser setup.
-Sample Log: 
+3. Use the log tester script to confirm your API key and parser setup.
+   Sample Log:
 
 ![OpenAI Verification Log](docs/openai-verification-log.png)
 
 1. **Open the Rails console**
+
    ```bash
    bin/rails console
    ```
 
 2. **Run the debug script** (paste into the console and press Enter)
+
    ```ruby
    load Rails.root.join("script/debug_openai_parser.rb")
    ```
@@ -113,7 +119,9 @@ Sample Log:
    Rails.application.credentials.dig(:openai_api_key).present?
    # => true
    ```
+
 ---
+
 ### Email Notification (Configuration)
 
 Parse confirmation emails are sent after a recipe is created or re-parsed. In development, mail is logged (no SMTP). For production you need to configure delivery:
@@ -142,11 +150,11 @@ The app exposes a JSON API for updating recipes. All API requests require an aut
 
 **Request body (form-encoded):**
 
-| Parameter           | Type   | Required | Description      |
-|--------------------|--------|----------|------------------|
-| `recipe[title]`    | string | Yes      | Recipe title     |
-| `recipe[source_url]` | string | No     | Source URL       |
-| `authenticity_token` | string | Yes   | Rails CSRF token |
+| Parameter            | Type   | Required | Description      |
+| -------------------- | ------ | -------- | ---------------- |
+| `recipe[title]`      | string | Yes      | Recipe title     |
+| `recipe[source_url]` | string | No       | Source URL       |
+| `authenticity_token` | string | Yes      | Rails CSRF token |
 
 **Success response:** `200 OK`
 
@@ -236,15 +244,19 @@ Click here for helpful new user guides on getting these keys set up:
 - Run locally: `bundle exec rubocop` and `bundle exec rspec`. Fix any new offenses or failing specs before pushing.
 
 ---
+
 ## Entity Relationship Diagram
 
 ![Entity Relationship Diagram](docs/erdimage.png)
 
 ---
+
 ## Project Board
+
 [View Project Board on GitHub](https://github.com/users/bellarosewilson/projects/1/views/1)
 
 ---
+
 ## License
 
 All files are covered by the MIT license. See [LICENSE.txt](LICENSE.txt).
