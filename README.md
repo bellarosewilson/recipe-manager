@@ -66,11 +66,9 @@ Follow these steps so a new developer can run the project locally without extern
 
 ## Configuration
 
-Sensitive keys are stored via Rails credentials. Please choose the method that works best for you.
+Sensitive keys are stored via Rails credentials. However, please choose the method that works best for you. You will need your own AWS S3 Credentials and OpenAI API Key. Checkout these guides if needed, [FAQ for Guides to Setup Keys as New User](#how-do-i-get-my-own-aws-s3-and-openai-keys).
 
 ### Rails credentials
-
-You will need your own AWS S3 Credentials and OpenAI API Key. Checkout these guides if needed, [FAQ for Guides to Setup Keys as New User](#how-do-i-get-my-own-aws-s3-and-openai-keys).
 
 1. Edit with:
 
@@ -80,14 +78,14 @@ EDITOR="code --wait" bin/rails credentials:edit
 
 2. Add Keys to Credentials
 
-(If needed select development, otherwise defaults to production)
+(Defaults to adding to prodction, unless development is specified)
 
 - **OpenAI** (required for recipe parsing):  
   `openai_api_key: sk-your-key`
 - **AWS S3** (optional for local; required for production file uploads):  
   `aws:` with `access_key_id`, `secret_access_key`, `region`, `bucket`
 
-### Environment variables
+### Environment Variables
 
 - Use a **.env** file (loaded by `dotenv-rails`) for local overrides. Do not commit `.env`; add it to `.gitignore`.
 - Optional: `OPENAI_API_KEY` if you prefer env over credentials for the key.
