@@ -14,7 +14,10 @@ services:
       - key: WEB_CONCURRENCY
         value: "1" # Single worker to fit in 512MB
       - key: RAILS_MAX_THREADS
-        value: "2" # Cap threads to reduce memory
+        value: "2"
+      # Must be >= Solid Queue threads (4) + Puma threads (2); 6 prevents Solid Queue crash
+      - key: DB_POOL
+        value: "6"
       - key: MALLOC_ARENA_MAX
         value: "2" # Reduce memory fragmentation
       - key: SOLID_QUEUE_IN_PUMA

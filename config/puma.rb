@@ -41,5 +41,5 @@ plugin :solid_queue if ENV["SOLID_QUEUE_IN_PUMA"]
 pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
 
 preload_app!
-on_worker_boot { ActiveRecord::Base.establish_connection }
+before_worker_boot { ActiveRecord::Base.establish_connection }
 worker_timeout 30
