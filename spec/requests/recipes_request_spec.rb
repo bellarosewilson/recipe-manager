@@ -10,7 +10,6 @@ RSpec.describe "Recipes", type: :request do
         password: "password123",
         password_confirmation: "password123",
       )
-      user.confirm
       sign_in user
 
       get recipes_path

@@ -132,7 +132,7 @@ Sample Log:
 
 For production you need to configure delivery:
 
-1. Set `config.action_mailer.default_url_options = { host: "your-production-host.com" }` in `config/environments/production.rb` (and use HTTPS if applicable).
+1. Set `config.action_mailer.default_url_options = { host: "your-production-host.com" }` in `config/environments/production.rb` (and use HTTPS if applicable). This is required so password-reset and other mailer links point to your app.
 2. Configure SMTP (or another delivery method): uncomment and set `config.action_mailer.smtp_settings` in production.rb, or use credentials (e.g. `smtp:` with `user_name`, `password`, `address`, `port`). Many hosts (e.g. Render, Heroku) provide SMTP add-ons or env vars for this.
 3. Without SMTP in production, emails will not be sent; the app will still work and jobs will enqueue. Emails will begin sending only after SMTP is enabled.
 
